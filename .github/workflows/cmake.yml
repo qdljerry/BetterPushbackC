@@ -23,6 +23,9 @@ jobs:
       # uses: egor-tensin/setup-mingw@84c781b557efd538dec66bde06988d81cd3138cf
       uses: egor-tensin/setup-mingw@v2
     
+    - name: Install DEP
+      run: apt install -y build-essential cmake pkg-config automake autoconf libtool unzip qt5-qmake qt5-default libxcursor-dev libglu1-mesa-dev libpulse-dev libasound2-dev
+    
     - uses: actions/checkout@v3
       with:
         submodules: true
