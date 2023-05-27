@@ -2361,7 +2361,7 @@ pb_step_waiting4ok2disco(void)
 
 			(void) conf_get_b(bp_conf, "disco_when_done",
 			    &disco_when_done);
-			if (disco_when_done) {
+			if (disco_when_done || bp_xp_ver >= 12000) {
 				/*
 				 * Don't actually show the interface, just
 				 * fire the disconnection command.
