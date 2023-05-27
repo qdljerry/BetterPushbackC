@@ -21,9 +21,6 @@ jobs:
     - name: Install DEP
       run: sudo apt install -y build-essential cmake pkg-config automake autoconf libtool unzip libxcursor-dev libglu1-mesa-dev libpulse-dev libasound2-dev libpng-dev mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
     
-    - name: Build DEP
-      run: /home/runner/work/BetterPushbackC/BetterPushbackC/src/libacfutils/build_deps
-    
     #- name: Install MinGW
     #  # You may pin to the exact commit or the version.
     #  # uses: egor-tensin/setup-mingw@84c781b557efd538dec66bde06988d81cd3138cf
@@ -32,6 +29,9 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
+
+    - name: Build DEP
+      run: ./src/libacfutils/build_deps
 
     - name: Build
       # Build your program with the given configuration
