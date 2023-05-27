@@ -24,6 +24,8 @@ jobs:
       uses: egor-tensin/setup-mingw@v2
     
     - uses: actions/checkout@v3
+      with:
+        submodules: true
 
     - name: Build
       # Build your program with the given configuration
