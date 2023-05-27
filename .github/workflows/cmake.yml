@@ -18,18 +18,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install MinGW
-      # You may pin to the exact commit or the version.
-      # uses: egor-tensin/setup-mingw@84c781b557efd538dec66bde06988d81cd3138cf
-      uses: egor-tensin/setup-mingw@v2
-    
-    - name: Install Qt
-      # You may pin to the exact commit or the version.
-      # uses: jurplel/install-qt-action@2d518188e746defd451af981c3c901f463d99e29
-      uses: jurplel/install-qt-action@v3.2.1
-    
     - name: Install DEP
-      run: sudo apt install -y build-essential cmake pkg-config automake autoconf libtool unzip libxcursor-dev libglu1-mesa-dev libpulse-dev libasound2-dev
+      run: sudo apt install -y build-essential cmake pkg-config automake autoconf libtool unzip libxcursor-dev libglu1-mesa-dev libpulse-dev libasound2-dev libpng-dev mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
+    
+    #- name: Install MinGW
+    #  # You may pin to the exact commit or the version.
+    #  # uses: egor-tensin/setup-mingw@84c781b557efd538dec66bde06988d81cd3138cf
+    #  #uses: egor-tensin/setup-mingw@v2
     
     - uses: actions/checkout@v3
       with:
