@@ -31,7 +31,7 @@ jobs:
         submodules: true
 
     - name: Build DEP
-      run: ./src/libacfutils/build_deps
+      run: cd ./src/libacfutils && ./build_deps
 
     - name: Build
       # Build your program with the given configuration
