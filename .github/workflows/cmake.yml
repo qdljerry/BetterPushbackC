@@ -22,7 +22,7 @@ jobs:
       run: sudo apt install -y build-essential cmake pkg-config automake autoconf libtool unzip libxcursor-dev libglu1-mesa-dev libpulse-dev libasound2-dev libpng-dev mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
     
     - name: Build DEP
-      run: ./src/libacfutils/build_deps
+      run: ls src && ./src/libacfutils/build_deps
     
     #- name: Install MinGW
     #  # You may pin to the exact commit or the version.
