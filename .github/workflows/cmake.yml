@@ -18,55 +18,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cache ENV
-      uses: actions/cache@v1.2.1
-      id: env_cache
-      with:
-        path: ./src/libacfutils
-        key: bp-env
-
     - name: Install DEP
-      if: steps.env_cache.outputs.cache-hit != 'true'
       run: sudo apt install -y build-essential cmake pkg-config automake autoconf libtool unzip libxcursor-dev libglu1-mesa-dev libpulse-dev libasound2-dev libpng-dev mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
-
+    
     - name: Install Qt
-      if: steps.env_cache.outputs.cache-hit != 'true'
+      # You may pin to the exact commit or the version.
+      # uses: jurplel/install-qt-action@2d518188e746defd451af981c3c901f463d99e29
       uses: jurplel/install-qt-action@v3.2.1
-      with:
-        cache: bp-qt
     
     - uses: actions/checkout@v3
-      if: steps.env_cache.outputs.cache-hit != 'true'
       with:
         submodules: true
 
-    - name: Build DEP
-      if: steps.env_cache.outputs.cache-hit != 'true'
-      run: cd ./src/libacfutils && ./build_deps
-
-  build:
-    needs: build_env
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Cache ENV
+    - name: Cache
       uses: actions/cache@v1.2.1
-      id: env_cache
+      id: libcache
       with:
+        # A directory to store and save the cache
         path: ./src/libacfutils
-        key: bp-env
-    
-    - uses: actions/checkout@v3
-      with:
-        clean: false
-        submodules: true
+        # An explicit key for restoring and saving the cache
+        key: bp-libacfutils
     
     - name: Build DEP
+      if: steps.libcache.outputs.cache-hit != 'true'
       run: cd ./src/libacfutils && ./build_deps
-    
+
     - name: Build libacfutils
+      if: steps.libcache.outputs.cache-hit != 'true'
       run: cd ./src/libacfutils/qmake && ./build-win-lin
 
     - name: Build
       # Build your program with the given configuration
       run: ./build_release
+    
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: BetterPushback # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./BetterPushback
+        # The desired behavior if no files are found using the provided path.
