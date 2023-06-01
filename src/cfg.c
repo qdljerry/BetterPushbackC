@@ -523,6 +523,7 @@ bp_conf_save(void)
 
 	path = mkpathname(CONF_DIRS, CONF_FILENAME, NULL);
 	fp = fopen(path, "wb");
+	fputs("#This is a test",fp);
 	if (fp != NULL && conf_write(bp_conf, fp)) {
 		res = B_TRUE;
 	} else {
