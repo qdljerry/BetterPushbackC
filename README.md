@@ -18,7 +18,7 @@ around the world.
 
 ## Donations
 
-To leave a voluntary donation for **origin author**, please follow the PayPal link below:
+To leave a voluntary donation for **original author**, please follow the PayPal link below:
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8DN9LYD5VP4NY)
 
