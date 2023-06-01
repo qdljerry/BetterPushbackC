@@ -1,7 +1,9 @@
 # !!!! IMPORTANT !!!!
-DO NOT download BetterPushback using the green "Clone or Download" button
+- This repo intent to fix some problems in **XPlane 12**  
+- This repo use **github actions** to build release that make developing this plugin more efficiently.  
+- DO NOT download BetterPushback using the green "Clone or Download" button
 on the main repository page. Use the
-[RELEASES](https://github.com/skiselkov/BetterPushbackC/releases) section, the click on "Assets" and download "BetterPushback.zip".
+[RELEASES](https://github.com/qdljerry/BetterPushbackC_XP12/releases) section, the click on "Assets" and download "BetterPushback.zip".
 
 # About BetterPushback
 
