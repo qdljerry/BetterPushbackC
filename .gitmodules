@@ -1,3 +1,4 @@
 [submodule "src/libacfutils"]
 	path = src/libacfutils
 	url = https://github.com/qdljerry/libacfutils.git
+	branch = master
